@@ -9,7 +9,7 @@ function emailValidation(){
     let e = username.lastIndexOf(".");
 
     if (t > 0 && e > 0 && t < e) {
-        pass=passget(username);
+        passget(username);
         if(pass!=null){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
