@@ -3,28 +3,25 @@ let t1=0,t2=0,t3=0,t4=0;
 
 
 
-function emailValidation(){
+async function emailValidation(){
+    username="";
     username = document.getElementById("username").value;
     let t = username.indexOf("@");
     let e = username.lastIndexOf(".");
 
     if (t > 0 && e > 0 && t < e) {
-        passget(username);
-        document.getElementById('passwordMsg').innerHTML=pass+"1145";
-        if(pass!=null){
+        pass="";
+        pass=await passget(username);
+        document.getElementById('passwordMsg').innerHTML=pass;
+        document.getElementById('passwordMsg').style.display = "block";
+        if(pass!=""&&pass!=null&&pass!=undefined&&pass!="null"&&pass!="undefined"){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
         document.getElementById("usernameMsg").style.color = "#1eff00";
         document.getElementById("usernameMsg").innerHTML = username+"邮箱格式正确，且有注册权限";
         t1=1;
         }
-        else{
-        document.getElementById("username").style.borderColor = "#ffd20a";
-        document.getElementById("usernameMsg").style.display = "block";
-        document.getElementById("usernameMsg").style.color = "#ffd20a";
-        document.getElementById("usernameMsg").innerHTML = username+"邮箱合法，但您没有注册权限";
-        t1=0;   
-    }
+   
     } 
 
     else {
@@ -37,21 +34,25 @@ function emailValidation(){
 }
 
 
-async function passget(username){
-    const re=await fetch('/api/register-get?action=get&key='+encodeURIComponent(username)); // Use template literals to include the username in the URL
-    const data=await re.json();
-    if(re.ok){
-        pass=data.value;
-    }
-
-    else{
-        pass=null;
-    }
+async function passget(username) {
+  const re = await fetch('/api/register-get?action=get&key=' + encodeURIComponent(username));
+  const data = await re.json();
+  console.log(data);
+  if (re.ok&&re!=undefined) {
+    return data.value;
+  } else {
+    document.getElementById("username").style.borderColor = "#ffd20a";
+    document.getElementById("usernameMsg").style.display = "block";
+    document.getElementById("usernameMsg").style.color = "#ffd20a";
+    document.getElementById("usernameMsg").innerHTML = username+"邮箱合法，但您没有注册权限";
+    t1=0;  // 让调用方捕获
+    throw new Error(data.error || '获取失败');
+  }
 }
 
-function passinc(){
+async function passinc(){
     passin=document.getElementById("passc").value;
-    pass=passget(username);
+    pass=await passget(username);
     if(passin==pass){
         document.getElementById("passc").style.borderColor = "#1eff00";
         document.getElementById("passcMsg").style.display = "block";
@@ -88,6 +89,7 @@ function passwordin(){
 }
 
 function passwordyesc(){
+
     yes_password=document.getElementById("passwordyes").value;
     if(yes_password==password_in){
         document.getElementById("passwordyes").style.borderColor = "#1eff00";
