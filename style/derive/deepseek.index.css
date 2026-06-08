@@ -55,19 +55,6 @@
     }
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.input-group label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    letter-spacing: 0.02em;
-}
-
 .error-msg {
     margin-top: 8px;
     padding: 8px 14px;

@@ -31,9 +31,11 @@
 
 	<hcw-article>
 		<div class="menu-bar">
-			<hcw-button id="search-btn" class="menu-btn" primary data-menu="search" onclick="searchForm()">查询时刻表</hcw-button>
+			<hcw-button id="search-btn" class="menu-btn" primary data-menu="search"
+				onclick="searchForm()">查询时刻表</hcw-button>
 			<hcw-button id="add-btn" class="menu-btn" data-menu="add" onclick="addForm()">添加时刻表</hcw-button>
-			<hcw-button id="delete-btn" class="menu-btn" variant=danger data-menu="delete" onclick="deleteForm()">删除时刻表</hcw-button>
+			<hcw-button id="delete-btn" class="menu-btn" variant=danger data-menu="delete"
+				onclick="deleteForm()">删除时刻表</hcw-button>
 		</div>
 		<div class="form-panel">
 			<!-- 添加模块 -->
@@ -41,8 +43,8 @@
 				<div class="grid-2col">
 					<div class="form-group">
 						<label>城市</label>
-						<input hcw-input type="text" id="city" name="city" placeholder="例: 北京市"
-							autocomplete="off" required onchange="citychange()">
+						<input hcw-input type="text" id="city" name="city" placeholder="例: 北京市" autocomplete="off"
+							required onchange="citychange()">
 						<p id="citytest" class="lp"></p>
 					</div>
 					<div class="form-group">
@@ -71,17 +73,18 @@
 					</div>
 					<div class="form-group full-width">
 						<label>主站→副站时刻表</label>
-						<textarea hcw-input type="text" id="time1" name="time1"
-							placeholder="例: 0600 0630 0700" required onchange="time1change()"></textarea>
+						<textarea hcw-input type="text" id="time1" name="time1" placeholder="例: 0600 0630 0700" required
+							onchange="time1change()"></textarea>
 						<p id="time1test" class="lp"></p>
 						<hcw-button id="back1" onclick="backone()"
 							style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
-						<hcw-button variant="danger" id="cl1" onclick="clt1()" style="display: none;">清空该时刻表</hcw-button>
+						<hcw-button variant="danger" id="cl1" onclick="clt1()"
+							style="display: none;">清空该时刻表</hcw-button>
 					</div>
 					<div class="form-group full-width">
 						<label>副站→主站时刻表</label>
-						<textarea hcw-input type="text" id="time2" name="time2"
-							placeholder="例: 0620 0650 0730" required onchange="time2change()"></textarea>
+						<textarea hcw-input type="text" id="time2" name="time2" placeholder="例: 0620 0650 0730" required
+							onchange="time2change()"></textarea>
 						<p id="time2test" class="lp"></p>
 						<hcw-button id="back2" onclick="backtwo()"
 							style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
@@ -89,13 +92,14 @@
 					</div>
 					<div class="form-group full-width">
 						<label>执行时间</label>
-						<input hcw-input type="text" id="exec-time" name="exec-time"
-							placeholder="例: 2025.01.01" required onchange="exec_timechange()">
+						<input hcw-input type="text" id="exec-time" name="exec-time" placeholder="例: 2025.01.01"
+							required onchange="exec_timechange()">
 						<p id="exec-timetest" class="lp"></p>
 					</div>
 				</div>
 				<div class="btn-group">
-					<hcw-button primary flat style="min-width: 8rem;" id="submitAddBtn" onclick="add_form()">添加上传</hcw-button>
+					<hcw-button primary flat style="min-width: 8rem;" id="submitAddBtn"
+						onclick="add_form()">添加上传</hcw-button>
 					<hcw-button style="min-width: 8rem;" id="resetAddBtn" onclick="cleanAddForm()">清空表单</hcw-button>
 				</div>
 				<div id="add-result" class="result-card hidden"></div>
@@ -121,8 +125,7 @@
 				</div>
 				<div class="btn-group">
 					<hcw-button primary flat style="min-width: 8rem" id="submitSearchBtn">查询时刻表</hcw-button>
-					<hcw-button style="min-width: 5rem" id="clearSearchBtn"
-						onclick="clearSearchForm()">清除</hcw-button>
+					<hcw-button style="min-width: 5rem" id="clearSearchBtn" onclick="clearSearchForm()">清除</hcw-button>
 				</div>
 				<div id="search-result" class="result-card hidden"></div>
 			</form>
@@ -143,34 +146,34 @@
 	</hcw-article>
 	<!-- 登录模态框 -->
 	<div id="globalLoginModal" class="modal" style="align-items: center; display: none;">
-		<div class="modal-card">
-			<div class="modal-header">
+		<div hcw-modal>
+			<div hcw-modal-title>
 				<h3>登录系统</h3>
-				<span class="close-modal" id="closeModalBtn" onclick=close_login_modal()>&times;</span>
+				<span hcw-button tp icon id="closeModalBtn" onclick=close_login_modal()>&times;</span>
 			</div>
-			<div class="modal-body">
+			<div hcw-modal-body>
 				<div class="input-group">
 					<label>用户名</label>
-					<input type="text" id="username" placeholder="请输入用户名" autocomplete="off" required
+					<input hcw-input primary type="text" id="username" placeholder="请输入用户名" autocomplete="off" required
 						onchange="username_in()">
 				</div>
 				<div class="input-group">
 					<label>密码</label>
-					<input type="password" id="password" placeholder="请输入密码" required onchange="password_in()">
+					<input hcw-input type="password" id="password" placeholder="请输入密码" required
+						onchange="password_in()">
 				</div>
-				<button id="login-btn" type="submit" class="login-submit" onclick="login_btn2()">登 录</button>
 				<div id="ErrorLogin" class="error-msg">
 					<p>用户名或密码错误，请重新输入</p>
 				</div>
-				<div style="text-align: center; margin-top: 1.5rem;">
-					<button class="login-submit" id='RegisterBtn' style="background: #ffffff; color: #8b75bd;"
-						onclick="register_btn()">
-						注册账户 (暂未开放)
-					</button>
-					<p style="font-size: 0.8rem; color: #8aa0af; margin-top: 0.5rem;">注册功能将在后续版本开放</p>
-				</div>
+				<button hcw-button primary large id="login-btn" type="submit" class="login-submit"
+					onclick="login_btn2()">登 录</button>
+				<button id='RegisterBtn' hcw-button large onclick="register_btn()">
+					注册账户
+				</button>
+				<p style="color: var(--text-muted)">注册功能将在后续版本开放</p>
 			</div>
 		</div>
+	</div>
 </body>
 <script src="timetable.js"></script>
 <script src="main.js"></script>
