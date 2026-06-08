@@ -38,7 +38,7 @@ function emailValidation(){
 
 async function passget(username){
     const re=await fetch('/api/register-get?action=get&key='+encodeURIComponent(username)); // Use template literals to include the username in the URL
-    const data=await re.json();
+    const data=JSON.parse(re);
     if(re.ok){
         return data.value;
     }
@@ -51,7 +51,6 @@ async function passget(username){
 function passinc(){
     passin=document.getElementById("passc").value;
     pass=passget(username);
-    document.getElementById("passwordMsg").innerHTML = "1145";
     if(passin==pass){
         document.getElementById("passc").style.borderColor = "#1eff00";
         document.getElementById("passcMsg").style.display = "block";
