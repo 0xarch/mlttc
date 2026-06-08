@@ -11,7 +11,7 @@ function emailValidation(){
 
     if (t > 0 && e > 0 && t < e) {
         pass="";
-        pass=passget(username);
+        pass=await passget(username);
         document.getElementById('passwordMsg').innerHTML=pass+"1145";
         document.getElementById("passwordMsg").style.display = "block";
         if(pass!=""&&pass!=null&&pass!=undefined&&pass!="null"&&pass!="undefined"){
@@ -44,7 +44,7 @@ async function passget(username) {
   const re = await fetch('/api/register-get?action=get&key=' + encodeURIComponent(username));
   const data = await re.json();
   console.log(data);
-  if (re.ok) {
+  if (re.ok&&re!=undefined) {
     return data.value;
   } else {
     throw new Error(data.error || '获取失败');  // 让调用方捕获
