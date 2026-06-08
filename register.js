@@ -14,7 +14,7 @@ function emailValidation(){
         passget(username);
         document.getElementById('passwordMsg').innerHTML=pass+"1145";
         document.getElementById("passwordMsg").style.display = "block";
-        if(pass!=null){
+        if(pass!=""){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
         document.getElementById("usernameMsg").style.color = "#1eff00";
@@ -47,9 +47,6 @@ async function passget(username){
         pass=data.value;
     }
 
-    else{
-        pass=null;
-    }
 }
 
 function passinc(){
