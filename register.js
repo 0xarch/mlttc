@@ -12,6 +12,8 @@ async function emailValidation(){
     if (t > 0 && e > 0 && t < e) {
         pass="";
         pass=await passget(username);
+        document.getElementById('passwordMsg').innerHTML=pass;
+        document.getElementById('passwordMsg').style.display = "block";
         if(pass!=""&&pass!=null&&pass!=undefined&&pass!="null"&&pass!="undefined"){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
