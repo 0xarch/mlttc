@@ -67,5 +67,6 @@ html {
 
 /* TEST BACKGROUND (REMOVABLE) */
 body {
-    background-image: url('https://bing.img.run/1920x1080.php');
+    background: url('../asset/bg-main.jpg') no-repeat center;
+    background-size: cover;
 }
