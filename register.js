@@ -4,19 +4,23 @@ function emailValidation(){
     username = document.getElementById("username").value;
     let t = username.indexOf("@");
     let e = username.lastIndexOf(".");
-    passget(username);
-    if (t > 0 && e > 0 && t < e&&pass!=null) {
+
+    if (t > 0 && e > 0 && t < e) {
+        passget(username);
+        if(pass!=null){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
         document.getElementById("usernameMsg").style.color = "#1eff00";
         //document.getElementById("usernameMsg").innerHTML = username+"邮箱格式正确";
-    } 
-    else if(t > 0 && e > 0 && t < e&&pass==null){
+        }
+        else{
         document.getElementById("username").style.borderColor = "#ffd20a";
         document.getElementById("usernameMsg").style.display = "block";
         document.getElementById("usernameMsg").style.color = "#ffd20a";
         //document.getElementById("usernameMsg").innerHTML = username+"邮箱合法，但您没有注册权限";
     }
+    } 
+
     else {
         document.getElementById("username").style.borderColor = "#ff0000";
         document.getElementById("usernameMsg").style.display = "block";
