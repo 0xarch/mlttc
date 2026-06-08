@@ -6,6 +6,8 @@ hcw-button,
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-lg);
     background-color: var(--button-bg);
     color: var(--button-color);
@@ -51,7 +53,7 @@ hcw-button,
         }
     }
 
-    &:not([disabled], [primary]):hover {
+    &:not([disabled], [primary], [variant]):hover {
         background-color: var(--button-bg-hl);
         color: var(--button-color-hl);
     }
@@ -63,6 +65,33 @@ hcw-button,
     &[fill] {
         background-color: var(--button-fill-bg);
         color: var(--button-fill-color);
+    }
+
+    &[variant='success'] {
+        background-color: var(--success);
+        color: var(--success-light);
+
+        &:hover {
+            filter: brightness(1.05);
+        }
+    }
+
+    &[variant='danger'] {
+        background-color: var(--danger);
+        color: var(--danger-light);
+
+        &:hover {
+            filter: brightness(1.05);
+        }
+    }
+
+    &[variant='warning'] {
+        background-color: var(--warning);
+        color: var(--warning-light);
+
+        &:hover {
+            filter: brightness(1.05);
+        }
     }
 
     &[primary] {

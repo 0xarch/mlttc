@@ -1,43 +1,8 @@
-/* Logo 区域 */
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-text {
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    cursor: default;
-    user-select: none;
-    transition: opacity var(--transition-fast);
-    filter: drop-shadow(0 2px 4px rgba(44,95,138,0.2));
-}
-.logo-text:hover {
-    opacity: 0.85;
-}
-
 /* 头部右侧认证区域容器 */
 #headerAuthArea {
     display: flex;
     align-items: center;
     gap: 14px;
-}
-
-/* ---------- 主面板 ---------- */
-.main-dashboard {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: min(1.5rem, 5vw);
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
 }
 
 /* ---------- 按钮网格 ---------- */

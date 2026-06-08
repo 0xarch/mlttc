@@ -14,17 +14,16 @@ hcw-input,
     text-shadow: 0 0 .25rem var(--glass-inner-hl);
     transition: var(--transition-fast);
     transition-property: transform, background-color, color, box-shadow;
-    text-align: center;
-    cursor: pointer;
+    cursor: text;
     font-size: 1rem;
 
     &[large] {
         font-size: 1.25rem;
     }
 
-    &:not([disabled], [primary]):hover {
-        background-color: var(--button-bg-hl);
-        color: var(--button-color-hl);
+    &:not([disabled]):hover {
+        background-color: var(--input-bg-hl);
+        color: var(--input-color-hl);
     }
 
     &[tp] {
