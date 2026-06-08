@@ -10,6 +10,7 @@ function emailValidation(){
     let e = username.lastIndexOf(".");
 
     if (t > 0 && e > 0 && t < e) {
+        pass="";
         pass=passget(username);
         document.getElementById('passwordMsg').innerHTML=pass+"1145";
         document.getElementById("passwordMsg").style.display = "block";
@@ -42,6 +43,7 @@ function emailValidation(){
 async function passget(username){
     const re=await fetch('/api/register-get?action=get&key='+encodeURIComponent(username)); // Use template literals to include the username in the URL
     const data=await re.json();
+    console.log(data);
     if(re.ok){
         return data.value;
     }
