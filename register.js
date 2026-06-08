@@ -40,14 +40,15 @@ function emailValidation(){
 }
 
 
-async function passget(username){
-    const re=await fetch('/api/register-get?action=get&key='+encodeURIComponent(username)); // Use template literals to include the username in the URL
-    const data=await re.json();
-    console.log(data);
-    if(re.ok){
-        return data.value;
-    }
-
+async function passget(username) {
+  const re = await fetch('/api/register-get?action=get&key=' + encodeURIComponent(username));
+  const data = await re.json();
+  console.log(data);
+  if (re.ok) {
+    return data.value;
+  } else {
+    throw new Error(data.error || '获取失败');  // 让调用方捕获
+  }
 }
 
 function passinc(){
