@@ -6,7 +6,7 @@ function emailValidation(){
     let e = username.lastIndexOf(".");
 
     if (t > 0 && e > 0 && t < e) {
-        passget(username);
+        pass=passget(username);
         if(pass!=null){
         document.getElementById("username").style.borderColor = "#1eff00";
         document.getElementById("usernameMsg").style.display = "block";
@@ -34,11 +34,10 @@ async function passget(username){
     const re=await fetch('/api/register-get?action=get&key='+encodeURIComponent(username)); // Use template literals to include the username in the URL
     const data=await re.json();
     if(re.ok){
-      pass=data.value;
-      document.getElementById('usernameMsg').innerHTML = pass;
+        return data.value;
     }
+
     else{
-      pass=null;
-      document.getElementById('usernameMsg').innerHTML = username+"邮箱没有注册";
+        return null;
     }
 }
