@@ -42,3 +42,36 @@ hcw-modal,
         gap: .75rem;
     }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(20, 32, 46, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: modalFadeIn 0.25s ease-out;
+}
+
+@media(max-width: 480px) {
+    hcw-modal,
+    [hcw-modal] {
+        min-width: 100vw;
+        border-radius: 0px;
+    }
+}
+
+#globalLoginModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#globalLoginModal .modal-card {
+    position: relative;
+    margin: auto;
+}

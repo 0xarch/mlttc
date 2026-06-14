@@ -6,6 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>时刻表</title>
 	<link rel="stylesheet" href="style/timetable.css">
+	<script src="lib/ui/init.mjs" type="module"></script>
+	<script src="timetable.js"></script>
+	<script src="login.js"></script>
+	<script src="main.js"></script>
 </head>
 
 <body>
@@ -20,11 +24,11 @@
 		</div>
 		<p hidden-on-mobile style="margin-left: auto; color: var(--text-muted)">Beta测试版，功能仍在完善中</p>
 		<div id="headerAuthArea">
-			<button id="globalLoginBtn" hcw-button primary flat style="min-width: 5rem" onclick=login_btn()>登录</button>
+			<hcw-button id="globalLoginBtn" primary flat style="min-width: 5rem" onclick=login_btn()>登录</hcw-button>
 			<div id="globalUserInfo" style="display: none;">
 				<span>欢迎，<strong id="globalDisplayName">用户</strong></span>
-				<button id="globalLogoutBtn" hcw-button tp flat inline style="min-width: 5rem"
-					onclick="login_out()">退出</button>
+				<hcw-button id="globalLogoutBtn" tp flat inline style="min-width: 5rem"
+					onclick="login_out()">退出</hcw-button>
 			</div>
 		</div>
 	</hcw-body-header>
@@ -76,19 +80,24 @@
 						<textarea hcw-input type="text" id="time1" name="time1" placeholder="例: 0600 0630 0700" required
 							onchange="time1change()"></textarea>
 						<p id="time1test" class="lp"></p>
-						<hcw-button id="back1" onclick="backone()"
-							style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
-						<hcw-button variant="danger" id="cl1" onclick="clt1()"
-							style="display: none;">清空该时刻表</hcw-button>
+						<div class="btn-group">
+							<hcw-button id="back1" onclick="backone()"
+								style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
+							<hcw-button variant="danger" id="cl1" onclick="clt1()"
+								style="display: none;">清空该时刻表</hcw-button>
+						</div>
 					</div>
 					<div class="form-group full-width">
 						<label>副站→主站时刻表</label>
 						<textarea hcw-input type="text" id="time2" name="time2" placeholder="例: 0620 0650 0730" required
 							onchange="time2change()"></textarea>
 						<p id="time2test" class="lp"></p>
-						<hcw-button id="back2" onclick="backtwo()"
-							style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
-						<hcw-button variant="danger" id="cl2" onclick="clt2()" style="display: none">清空该时刻表</hcw-button>
+						<div class="btn-group">
+							<hcw-button id="back2" onclick="backtwo()"
+								style="display:none;background-color:rgb(78, 174, 92);color:#fff">还原该时刻表</hcw-button>
+							<hcw-button variant="danger" id="cl2" onclick="clt2()"
+								style="display: none">清空该时刻表</hcw-button>
+						</div>
 					</div>
 					<div class="form-group full-width">
 						<label>执行时间</label>
@@ -144,6 +153,9 @@
 		</div>
 
 	</hcw-article>
+
+	<hcw-body-footer></hcw-body-footer>
+
 	<!-- 登录模态框 -->
 	<div id="globalLoginModal" class="modal" style="align-items: center; display: none;">
 		<div hcw-modal>
@@ -175,8 +187,5 @@
 		</div>
 	</div>
 </body>
-<script src="timetable.js"></script>
-<script src="login.js"></script>
-<script src="main.js"></script>
 
 </html>

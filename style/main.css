@@ -4,7 +4,9 @@
 @import url('./components/input.css');
 @import url('./components/header.css');
 @import url('./components/article.css');
+@import url('./components/footer.css');
 @import url('./components/modal.css');
+@import url('./derive/link.css');
 
 /*
     --- BASIC UI OBJECT DEFINITIONS ---
@@ -41,6 +43,8 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-attachment: fixed;
 }
 
@@ -65,9 +69,42 @@ html {
     scroll-behavior: smooth;
 }
 
+@keyframes general_fadeIn_nomove_fixed_noreplace_dontrestore {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes general_fadeIn_fixed_noreplace_dontrestore {
+    from {
+        opacity: 0;
+        transform: translateY(.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* TEST BACKGROUND (REMOVABLE) */
-body {
+/* body {
     background: url('../asset/bg-main.jpg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-}
+} */

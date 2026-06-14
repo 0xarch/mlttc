@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="style/timetable.css">
 	<script src="timetable.js"></script>
 	<script src="main.js"></script>
+	<script src="lib/ui/init.mjs" type="module"></script>
 </head>
 
 <body>
@@ -24,11 +25,11 @@
 		</div>
 		<p hidden-on-mobile style="margin-left: auto; color: var(--text-muted)">Beta测试版，功能仍在完善中</p>
 		<div id="headerAuthArea">
-			<button id="globalLoginBtn" hcw-button primary flat style="min-width: 5rem" onclick=login_btn()>登录</button>
+			<hcw-button id="globalLoginBtn" primary flat style="min-width: 5rem" onclick=login_btn()>登录</hcw-button>
 			<div id="globalUserInfo" style="display: none;">
 				<span>欢迎，<strong id="globalDisplayName">用户</strong></span>
-				<button id="globalLogoutBtn" hcw-button tp flat inline style="min-width: 5rem"
-					onclick="login_out()">退出</button>
+				<hcw-button id="globalLogoutBtn" tp flat inline style="min-width: 5rem"
+					onclick="login_out()">退出</hcw-button>
 			</div>
 		</div>
 	</hcw-body-header>
@@ -128,8 +129,10 @@
 				<div id="delete-result" class="result-card hidden"></div>
 			</form>
 		</div>
-
 	</hcw-article>
+
+	<hcw-body-footer id="hcw-footer-replace"></hcw-body-footer>
+
 	<!-- 登录模态框 -->
 	<div id="globalLoginModal" class="modal" style="align-items: center; display: none;">
 		<div hcw-modal>

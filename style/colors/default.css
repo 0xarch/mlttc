@@ -30,6 +30,8 @@
     --border: rgba(217, 226, 236, 0.6);
     --border-light: rgba(232, 238, 244, 0.6);
 
+    --link-color: var(--primary);
+
     --button-bg: #fafafa81;
     --button-color: #383838;
     --button-fill-bg: #dfdfdfea;
