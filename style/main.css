@@ -91,9 +91,20 @@ html {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* TEST BACKGROUND (REMOVABLE) */
-body {
+/* body {
     background: url('../asset/bg-main.jpg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-}
+} */
