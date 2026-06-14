@@ -246,7 +246,8 @@ function bcchange(){
 
 function time1change(){
     document.getElementById('time1').style.borderColor = '#ffd20a';
-    document.getElementById('cl1').style.display = 'block';
+    document.getElementById('time1b').style.display = 'block';
+    document.getElementById('cl1').style.display='block';
     time1 = document.getElementById('time1').value;
     time1in=time1;
     timetest(time1);
@@ -299,8 +300,8 @@ function backone(){
 
 function time2change(){
     document.getElementById('time2').style.borderColor = '#ffd20a';
-    document.getElementById('cl2').style.display = 'block';
-
+    document.getElementById('time2b').style.display = 'block';
+    document.getElementById('cl2').style.display='block';
     time2 = document.getElementById('time2').value;
     timetest(time2);
     errorout='';
