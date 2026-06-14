@@ -1,4 +1,3 @@
-hcw-button,
 [hcw-button] {
     appearance: none;
     border: none;
@@ -115,4 +114,6 @@ hcw-button,
         box-shadow: none;
         color: var(--button-color-disabled);
     }
+
+    animation: general_fadeIn_fixed_noreplace_dontrestore var(--transition-slow) 0s 1 forwards;
 }

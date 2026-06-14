@@ -28,4 +28,6 @@ hcw-card, [hcw-card] {
             aspect-ratio: 1;
         }
     }
+
+    animation: general_fadeIn_fixed_noreplace_dontrestore var(--transition-slow) 0s 1 forwards;
 }
