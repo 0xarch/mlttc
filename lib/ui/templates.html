@@ -417,6 +417,7 @@
             display: flex;
             gap: .5rem;
             margin-left: auto;
+            flex-wrap: wrap;
 
             & hcw-button {
                 min-width: max(5vw, 6.5rem);
@@ -427,6 +428,11 @@
             .inner-root {
                 min-width: 100vw;
                 border-radius: 0px;
+            }
+
+            [name='btn-group'] {
+                flex-direction: column;
+                margin-left: initial;
             }
         }
     </style>
